@@ -13,8 +13,8 @@ class BandsContainer extends Component {
       <div>
         {/* BandsContainer */}
         {this.renderBands}
-        {/* <BandInput addBand={this.props.addBand()}/> */}
-        <BandInput />
+        <BandInput addBand={this.props.addBand}/>
+        {/* <BandInput /> */}
       </div>
     )
   }
@@ -27,12 +27,12 @@ const mapStateToProps = state => {
   })
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return ({
-//     addBand: formData => dispatch({
-//       type:'ADD_BAND',
-//       payload: formData})
-//   })
-// }
- export default connect(mapStateToProps)(BandsContainer);
-// export default connect(mapStateToProps, mapDispatchToProps)(BandsContainer)
+const mapDispatchToProps = dispatch => {
+  return ({
+    addBand: formData => dispatch({
+      type:'ADD_BAND',
+      payload: formData})
+  })
+}
+//  export default connect(mapStateToProps)(BandsContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(BandsContainer)
