@@ -1,5 +1,16 @@
+import uuid from 'uuid';
+
 export default function manageBand(state = {
   bands: [],
 }, action) {
-  return state
+  switch (action.type) {
+    case "ADD_BAND":
+      const band = {
+        id: uuid(),
+        ...action.band
+      }
+      return {bands: [...state.bands, band]}
+    default:
+      return state
+  }
 };
